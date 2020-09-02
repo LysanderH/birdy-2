@@ -1,38 +1,138 @@
-.App {
-  text-align: center;
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/*
+* ---------------------
+* Fonts
+* ---------------------
+*/
+
+
+
+/*
+* ---------------------
+* Tools
+* ---------------------
+*/
+.sro {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+/*
+* ---------------------
+* Components
+* ---------------------
+*/
+
+/* Navigation */
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #136470;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav__list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav__item {
+  width: 20%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav__link {
+  width: 100%;
+  display: inline-block;
+  text-indent: -99999em;
+  min-height: 70px;
+}
+
+.nav__link:hover {
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.nav__link--home {
+  background: url(./assets/home.svg) no-repeat 50% 50%;
+  background-size: 70%;
+}
+.nav__link--encyclopedia {
+  background: url(./assets/book.svg) no-repeat 50% 50%;
+  background-size: 80%;
+}
+.nav__link--maps {
+  background: url(./assets/world.svg) no-repeat 50% 50%;
+  background-size: 70%;
+
+}
+.nav__link--add {
+  background: url(./assets/plus.svg) no-repeat 50% 50%;
+  background-size: 60%;
+
+}
+.nav__link--account {
+  background: url(./assets/user.svg) no-repeat 50% 50%;
+  background-size: 60%;
 }
