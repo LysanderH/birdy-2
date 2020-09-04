@@ -1,7 +1,8 @@
-import React, {Component, useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Navigation from "../components/Navigation";
 import app from "../base";
 import {AuthContext} from "../Auth";
+import {Link} from "react-router-dom";
 
 const MyCaptures = () => {
     const [captures, setCaptures] = useState([]);
@@ -11,6 +12,7 @@ const MyCaptures = () => {
             await app.firestore().collection('Birds').where('user_id', '==', currentUser.uid).get().then(
                 (querySnapshot) => {
                     querySnapshot.forEach((doc) => {
+                        console.log(doc.id)
                         if (captures) {
                             setCaptures([doc.data()]);
                         } else {
@@ -26,22 +28,22 @@ const MyCaptures = () => {
         const t = new Date(1970, 0, 1); // Epoch
         t.setSeconds(secs);
         t.toLocaleDateString("fr-FR", {year: 'numeric', month: 'numeric', day: 'numeric'})
-        return t.getDay() + "/" + t.getMonth() + "/" + t.getFullYear().toString();
+        return t.getDay() + "/" + t.getMonth() + "/" + t.getFullYear();
     }
     return (
         <div>
             {console.log(captures)}
-            {captures.map(bird =>
+            {(captures.length !== 0) ? captures.map(bird =>
                 <li className="captures__item" key={bird.bird_id}>
-                    <dl>
-                        <dt>{bird.name}</dt>
-                        <dd>{toDateTime(bird.capture_at.seconds)}</dd>
-                    </dl>
+                    <Link to={"/captures/" + bird.bird_id}>
+                        <dl>
+                            <dt>{bird.name}</dt>
+                            <dd>{toDateTime(bird.capture_at.seconds)}</dd>
+                        </dl>
+                    </Link>
                 </li>
-            )}
-            {(captures) ? captures.forEach((bird) => {
-                return <p>{bird.name}</p>
-            }) : "Vous n'aves pas encore capturé d'oiseaux"}
+            ) : <p>Vous n'avez pas de captures</p>}
+
             <Navigation/>
         </div>
     )

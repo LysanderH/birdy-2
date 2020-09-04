@@ -11,6 +11,7 @@ import Profile from "./pages/Profile"
 import MyCaptures from "./pages/MyCaptures"
 import User from "./pages/User"
 import Encyclopedia from "./pages/Encyclopedia";
+import CapturedBird from "./pages/CapturedBird";
 import Bird from "./pages/Bird";
 
 // Utils
@@ -26,7 +27,8 @@ const App = () => {
           <PrivateRoute path="/add-bird" component={AddBird} />
           <PrivateRoute path="/map" component={Map} />
           <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/captures" component={MyCaptures} />
+          <PrivateRoute exact path="/captures" component={MyCaptures} />
+          <PrivateRoute exact path="/captures/:bird" component={CapturedBird} />
           <PrivateRoute path="/user" component={User} />
           <PrivateRoute path="/encyclopedia" component={Encyclopedia} />
           <PrivateRoute path="/encyclopedia/:bird" component={Bird} />
