@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Navigation from "../components/Navigation";
 import app from "../base";
+import GMap from "../components/GMap";
 import {Link} from "react-router-dom";
 
 const CapturedBird = (props) => {
@@ -51,20 +52,10 @@ const CapturedBird = (props) => {
                     <dd className="captured-bird__definition captured-bird__definition--weight">{bird.weight}g</dd>
                     <dt className="captured-bird__therm captured-bird__therm--height">Hauteur</dt>
                     <dd className="captured-bird__definition captured-bird__definition--height">{bird.height}cm</dd>
+                    {console.log(bird.location)}
+                    <GMap positions={[{lat: bird.location.ef, lng: bird.location.nf}]} />
                 </dl>
             ) : <p>Vous n'avez pas de captures</p>}
-            {/*{height: 71, capture_method: "nid", estimated_age: "enfant", user_id: "s4n6AweJKtNYonIQaNRP0248DYA2", weight: 1500, …}
-adiposity: 10
-bird_id: "BE 503 891 885"
-capture_at: t {seconds: 1599042600, nanoseconds: 0}
-capture_method: "nid"
-estimated_age: "enfant"
-height: 71
-name: "Accenteur Alpin"
-sci_name: "Clanga Clanga"
-sexe: "male"
-user_id: "s4n6AweJKtNYonIQaNRP0248DYA2"
-weight: 1500*/}
             <Navigation/>
         </div>
     )
