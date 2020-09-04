@@ -7,7 +7,7 @@ const AddBird = () => {
         <div>
             <h1>Add a bird</h1>
             <Navigation />
-            <button onClick={() => app.auth().signOut()}>Sign out</button>
+
         </div>
     );
 };

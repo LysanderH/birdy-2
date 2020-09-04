@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import Navigation from "../components/Navigation";
 
-class Map extends Component {
+class Encyclopedia extends Component {
     render() {
         return (
             <section>
-                <h2 className="map__heading">Carte</h2>
+                <h2 className="encyclopedia__heading">Encyclopédie</h2>
                 <Navigation />
             </section>
         );
     }
 }
 
-export default Map;
+export default Encyclopedia;

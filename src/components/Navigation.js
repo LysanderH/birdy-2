@@ -20,7 +20,7 @@ export default class Navigation extends Component {
                         <Link to="/encyclopedia" className="nav__link nav__link--encyclopedia">Encyclopédie</Link>
                     </li>
                     <li className="nav__item">
-                        <Link to="/account" className="nav__link nav__link--account">Mon compte</Link>
+                        <Link to="/profile" className="nav__link nav__link--account">Mon compte</Link>
                     </li>
                 </ul>
             </nav>
