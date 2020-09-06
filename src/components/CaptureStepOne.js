@@ -9,7 +9,7 @@ class CaptureStepOne extends Component {
     }
     componentDidMount() {
         if ("geolocation" in navigator) {
-            console.log("Available");
+            console.log("Geolocation Available");
             navigator.geolocation.getCurrentPosition((position) => {
                 this.setState({currentPosition: {lat: position.coords.latitude, lng: position.coords.longitude}})
             });
@@ -27,7 +27,7 @@ class CaptureStepOne extends Component {
                     <label htmlFor="ring-number" className="add-bird__label">Numéro de bague</label>
                     <input type="text" className="add-bird__input" placeholder="AOB05 Y010 123 YB" name="ringNumber"
                            id="ring-number" />
-                    <input type="submit"/>
+                    <input type="submit" value="Continuer"/>
                 </form>
                 <Navigation/>
             </div>
