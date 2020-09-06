@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
+// import {useHistory} from "react-router-dom";
 
 class CaptureStepTwo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentPosition: {lat: 0, lng: 0}
+            currentPosition: {lat: 0, lng: 0},
         }
+    }
+
+    goBack = () => {
+        this.props.history.push("/add-bird/1");
     }
 
     render() {
@@ -35,6 +40,7 @@ class CaptureStepTwo extends Component {
                     </select>
                     <input type="submit" value="Continuer"/>
                 </form>
+                <button onClick={this.goBack}>Retour</button>
             </div>
         );
     }

@@ -1,8 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import app from "../base";
 import firebase from 'firebase/app';
-import {useHistory, Redirect} from "react-router-dom"
-import Navigation from "../components/Navigation";
+import {useHistory} from "react-router-dom"
 import CaptureStepOne from "../components/CaptureStepOne";
 import CaptureStepTwo from "../components/CaptureStepTwo";
 import CaptureStepThree from "../components/CaptureStepThree";
@@ -140,10 +139,10 @@ const AddBird = (props) => {
             weight: 0,
         })
             .then(function () {
-                console.log("Document successfully written!");
+                history.push('/add-bird/5');
             })
             .catch(function (error) {
-                console.error("Error writing document: ", error);
+                prompt(error);
             });
         console.log(bird)
         // history.push('/add-bird/5');
@@ -153,13 +152,13 @@ const AddBird = (props) => {
             <h2 className="add-bird__heading">Ajouter un oiseau</h2>
             {console.log(bird)}
             {props.match.params.step === "1" ?
-                <CaptureStepOne checkRingNumber={checkRingNumber} bird={bird} birdExists={birdExist}/> : ''}
+                <CaptureStepOne checkRingNumber={checkRingNumber} history={history} bird={bird} birdExists={birdExist}/> : ''}
             {props.match.params.step === "2" ?
-                <CaptureStepTwo stepTwo={stepTwo} bird={bird} birdExists={birdExist}/> : ''}
+                <CaptureStepTwo stepTwo={stepTwo} bird={bird} history={history} birdExists={birdExist}/> : ''}
             {props.match.params.step === "3" ?
-                <CaptureStepThree stepThree={stepThree} bird={bird} birdExists={birdExist}/> : ''}
+                <CaptureStepThree stepThree={stepThree} bird={bird} history={history} birdExists={birdExist}/> : ''}
             {props.match.params.step === "4" ?
-                <CaptureStepFour stepFour={stepFour} bird={bird} birdExists={birdExist}/> : ''}
+                <CaptureStepFour stepFour={stepFour} bird={bird} history={history} birdExists={birdExist}/> : ''}
         </section>
     );
 };

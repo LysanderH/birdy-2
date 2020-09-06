@@ -4,6 +4,9 @@ class CaptureStepThree extends Component {
     constructor(props) {
         super(props);
     }
+    goBack = () => {
+        this.props.history.push("/add-bird/2");
+    }
     render() {
         return (
             <div>
@@ -24,6 +27,7 @@ class CaptureStepThree extends Component {
                            id="height"/>
                     <input type="submit" value="Continuer"/>
                 </form>
+                <button onClick={this.goBack}>Retour</button>
             </div>
         );
     }
