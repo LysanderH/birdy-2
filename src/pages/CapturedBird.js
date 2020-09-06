@@ -53,7 +53,7 @@ const CapturedBird = (props) => {
                     <dt className="captured-bird__therm captured-bird__therm--height">Hauteur</dt>
                     <dd className="captured-bird__definition captured-bird__definition--height">{bird.height}cm</dd>
                     {console.log(bird.location)}
-                    <GMap positions={[{lat: bird.location.ef, lng: bird.location.nf}]} />
+                    <GMap positions={[{lat: bird.location.ef, lng: bird.location.nf}]} initialPos={{lat: bird.location.ef, lng: bird.location.nf}} />
                 </dl>
             ) : <p>Vous n'avez pas de captures</p>}
             <Navigation/>

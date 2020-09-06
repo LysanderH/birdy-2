@@ -11,7 +11,7 @@ export class MapContainer extends Component {
         return (
             <Map google={this.props.google}
                  zoom={14}
-                 initialCenter={this.props.positions[0]}>
+                 initialCenter={this.props.initialPos}>
                 {/*{console.log(this.props.positions)}*/}
                 {this.props.positions.map((position, key) =>
                     <Marker position={position} key={key} />

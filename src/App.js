@@ -24,7 +24,7 @@ const App = () => {
       <Router>
         <div>
           <PrivateRoute exact path="/" component={Home} />
-          <PrivateRoute path="/add-bird" component={AddBird} />
+          <PrivateRoute path="/add-bird/:step" component={AddBird} />
           <PrivateRoute path="/map" component={Map} />
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute exact path="/captures" component={MyCaptures} />
